@@ -1,0 +1,22 @@
+.wrapper-data-object {
+  height: auto;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrapper-one-city {
+  height: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrapper-one-city:last-child {
+  margin-bottom: 0px;
+}
+
