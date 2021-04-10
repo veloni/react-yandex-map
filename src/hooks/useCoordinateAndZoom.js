@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const useCoordinateAndZoom = () => {
-  const [mapPositionX, setMapPositionX] = useState(40);
-  const [mapPositionY, setMapPositionY] = useState(50);
-  const [mapZoom, setMapZoom] = useState(5);
+  const [mapPositionX, setMapPositionX] = useState(80);
+  const [mapPositionY, setMapPositionY] = useState(60);
+  const [mapZoom, setMapZoom] = useState(4);
 
   return [
     mapPositionX,

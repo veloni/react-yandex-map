@@ -1,14 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import './RenderOfficeData.scss';
 
-const RenderOfficeData = ({ keyCity, isSeeData, moveToItem}) => {
-
-  return (
+const RenderOfficeData = ({ 
+  keyCity, 
+  isSeeData, 
+  moveToItem
+}) => 
+  (
     <div className="wrapper-data-object">
      {     
-        isSeeData && isSeeData[0][keyCity].map((item) => (
+        isSeeData && isSeeData[0][keyCity].map((item, index) => (
           <div 
+            key={index}
             className="wrapper-one-city"
             onClick={() => moveToItem(item)}
           >
@@ -30,6 +34,5 @@ const RenderOfficeData = ({ keyCity, isSeeData, moveToItem}) => {
       }
     </div>
   )
-}
 
 export default RenderOfficeData;

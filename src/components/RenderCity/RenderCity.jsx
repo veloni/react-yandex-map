@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 import RenderOfficeData from '../RenderOfficeData/RenderOfficeData';
 
@@ -6,7 +6,12 @@ import arrowUp from './svg/up-arrow.svg';
 
 import './RenderCity.scss';
 
-const RenderCity = ({keyCity, isSeeData, setMapZoom, moveToItem}) => {
+const RenderCity = ({
+  keyCity, 
+  isSeeData, 
+  moveToItem,
+}) => {
+
   const [isOpen, setIsOpen] = useState(false);
 
   const openAndView = () => {
@@ -20,6 +25,7 @@ const RenderCity = ({keyCity, isSeeData, setMapZoom, moveToItem}) => {
           {keyCity}
         </span>   
         <img 
+          alt="arrow"
           src={arrowUp}
           className={!isOpen ? "icon-actve aside-icon-open" : "aside-icon-open"}
           onClick={() => openAndView()}
