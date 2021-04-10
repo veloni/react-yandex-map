@@ -8,9 +8,6 @@ const Aside = ({
   switchBelarus, 
   switchRussia, 
   isSeeData, 
-  setMapPositionX, 
-  setMapPositionY, 
-  setMapZoom,
   isVisible, 
   moveToItem, 
 }) => 
@@ -35,11 +32,9 @@ const Aside = ({
           isSeeData && Object.keys(isSeeData[0]).map((keyCity, index) => (
             <RenderCity
               key={index}
+              isVisible={isVisible}
               keyCity={keyCity}
               isSeeData={isSeeData}
-              setMapPositionX={setMapPositionX}
-              setMapPositionY={setMapPositionY}
-              setMapZoom={setMapZoom}
               moveToItem={moveToItem}
             />
           ))

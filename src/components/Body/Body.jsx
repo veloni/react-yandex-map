@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
-import { YMaps, Map, Clusterer} from 'react-yandex-maps';
+import { YMaps, Map, Clusterer } from 'react-yandex-maps';
 
 import useLoadData from '../../hooks/useLoadData'; 
 import useSwitcher from '../../hooks/useSwitcher'; 
 import useCoordinateAndZoom from '../../hooks/useCoordinateAndZoom'; 
 import useMoveToItem from '../../hooks/useMoveToItem';
-import useOpenSpoiler from '../../hooks/useOpenSpoiler';
 
 import Points from '../Points/Points';
 import Aside from '../Aside/Aside';
@@ -14,27 +13,30 @@ import Aside from '../Aside/Aside';
 import './Body.scss';
 
 const Body = () => {
+  const refMap = useRef(null);
+
+  const [
+    dataBelarus,
+    dataRussia,
+    arrayRef,
+    setArrayRef,
+	] = useLoadData();
+
   const [
 		mapPositionX,
     mapPositionY,
-    mapZoom,
     setMapPositionX,
     setMapPositionY,
-    setMapZoom,
 	] = useCoordinateAndZoom();
 
   const [
-    moveToItem
+    moveToItem,
+    giveRef,
 	] = useMoveToItem(
-    setMapPositionX, 
-    setMapPositionY, 
-    setMapZoom,
+    refMap,
+    arrayRef, 
+    setArrayRef,
   );
-
-  const [
-		dataBelarus,
-    dataRussia,
-	] = useLoadData();
 
   const [
     isSeeData,
@@ -46,27 +48,25 @@ const Body = () => {
     dataRussia, 
     setMapPositionX, 
     setMapPositionY, 
-    setMapZoom,
   );
 
   return (
     <div className="main-wrapper">    
       <Aside
-        switchBelarus={switchBelarus}
-        switchRussia={switchRussia}
-        isSeeData={isSeeData}
-        setMapPositionX={setMapPositionX}
-        setMapPositionY={setMapPositionY}
-        setMapZoom={setMapZoom}
-        isVisible={isVisible}
-        moveToItem={moveToItem}
+         switchBelarus={switchBelarus}
+         switchRussia={switchRussia}
+         isSeeData={isSeeData}
+         isVisible={isVisible}
+         moveToItem={moveToItem}
+         refMap={refMap}
       />
       <YMaps>
         <div className="map-wrapper">
           <Map 
-            state = {{ center: [mapPositionY, mapPositionX], zoom: mapZoom}}
-            height="100vh"
-            width="80vw" 
+            instanceRef={refMap}
+            state = {{ center: [mapPositionY, mapPositionX], zoom: 5}}
+            height="1000px"
+            width="1300px"  
           >
             <Clusterer
               options={{
@@ -82,6 +82,7 @@ const Body = () => {
                 dataBelarus={dataBelarus}
                 dataRussia={dataRussia}
                 isVisible={isVisible}
+                giveRef={giveRef}
               />
             </Clusterer>
           </Map>

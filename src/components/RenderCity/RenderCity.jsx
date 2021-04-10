@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import RenderOfficeData from '../RenderOfficeData/RenderOfficeData';
 
@@ -10,9 +10,14 @@ const RenderCity = ({
   keyCity, 
   isSeeData, 
   moveToItem,
+  isVisible,
 }) => {
 
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setIsOpen(false);
+  },[isVisible]);
 
   const openAndView = () => {
     setIsOpen(!isOpen);

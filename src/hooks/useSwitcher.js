@@ -5,7 +5,6 @@ const useSwitcher = (
   dataRussia, 
   setMapPositionX, 
   setMapPositionY, 
-  setMapZoom,
   ) => {
   const [isSeeData, setIsSeeData] = useState(null);
   const [isVisible, setIsVisible] = useState(true);
@@ -13,7 +12,6 @@ const useSwitcher = (
   const switchBelarus = () => {
     setIsSeeData(dataBelarus);
     setIsVisible(false);
-    setMapZoom(7); 
     setMapPositionX(28);
     setMapPositionY(53);
   } 
@@ -21,7 +19,6 @@ const useSwitcher = (
   const switchRussia = () => {
     setIsSeeData(dataRussia);
     setIsVisible(true);
-    setMapZoom(4);
     setMapPositionX(80);
     setMapPositionY(60);
   } 

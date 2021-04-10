@@ -1,17 +1,28 @@
+import { useState, useEffect } from 'react';
+
 const useMoveToItem = (
-  setMapPositionX, 
-  setMapPositionY, 
-  setMapZoom
+  refMap,
 ) => {
 
-  const moveToItem = (item) => {
-    setMapPositionX(item.coordinate[1]);
-    setMapPositionY(item.coordinate[0]);
-    setMapZoom(18);
+  let arrayRef = [];
+
+  const moveToItem = (item, id) => {
+    refMap.current.setZoom(15, {duration: 1000}); 
+    refMap.current.panTo([item.coordinate[0], item.coordinate[1]]);  
+
+    setTimeout(() => {
+      arrayRef[id].current.balloon.open();    
+    }, 1200);  
+ 
   }
 
+  const giveRef = (placeRef) => {
+    arrayRef.push(placeRef);
+  };
+
   return [
-   moveToItem
+    moveToItem,
+    giveRef,
   ];
 };
 

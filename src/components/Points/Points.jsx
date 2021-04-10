@@ -5,12 +5,20 @@ import RussiaPoints from './typePoints/RussiaPoints';
 
 import './Points.scss';
 
-const Points = ({ dataBelarus, dataRussia , isVisible}) => {
+const Points = ({ 
+  dataBelarus, 
+  dataRussia , 
+  isVisible, 
+  refPlace,
+  giveRef,
+}) => {
   return (
     <div>
       {
         isVisible && <RussiaPoints
+          refPlace={refPlace}
           dataRussia={dataRussia}
+          giveRef={giveRef}
         />
       }
       {

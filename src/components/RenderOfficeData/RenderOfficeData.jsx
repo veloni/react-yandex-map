@@ -14,7 +14,7 @@ const RenderOfficeData = ({
           <div 
             key={index}
             className="wrapper-one-city"
-            onClick={() => moveToItem(item)}
+            onClick={() => moveToItem(item, item.id)}
           >
             <span className="aside-text-name-organization">
               {item.nameOrganization}
