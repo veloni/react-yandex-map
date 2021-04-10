@@ -12,9 +12,14 @@
   width: 400px;
 }
 
-.button-swicher {
+.button-switcher {
   height: 35px;
   width: 200px;
+  cursor: pointer;
+}
+
+.button-switcher-active {
+  background-color: orange;
 }
 
 .aside-name-city-and-data {

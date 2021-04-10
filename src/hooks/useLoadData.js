@@ -9,8 +9,8 @@ const useLoadData = () => {
 	useEffect(() => {
 		setDataBelarus(dataPlaceMark['Belarus']);
     setDataRussia(dataPlaceMark['Russia']);
-	},[]);
-
+    console.log(123);
+	});
 
   return [
     dataBelarus,

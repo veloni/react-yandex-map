@@ -1,0 +1,33 @@
+.wrapper-data-object {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrapper-one-city {
+  height: 100px;
+  margin-top: 30px;
+ /*  margin-bottom: 30px; */
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrapper-one-city:last-child {
+  margin-bottom: 0px;
+}
+
+.aside-text-name-organization {
+  font-weight: bold;
+  color: darkblue;
+}
+
+.aside-text-email-organization {
+  color: rgb(103, 103, 233);
+}
+
+.aside-text-phone-organization {
+  word-spacing: 10px;
+}

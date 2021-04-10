@@ -1,15 +1,18 @@
 import React, { useRef } from 'react';
 
-import { YMaps, Map, Clusterer} from 'react-yandex-maps';
+import { YMaps, Map, Clusterer, ObjectManager} from 'react-yandex-maps';
 
 import useLoadData from '../../hooks/useLoadData'; 
 import useSwitcher from '../../hooks/useSwitcher'; 
 import useCoordinateAndZoom from '../../hooks/useCoordinateAndZoom'; 
 
+import useMoveToItem from '../../hooks/useMoveToItem';
+
 import Points from '../Points/Points';
 import Aside from '../Aside/Aside';
 
 const Body = () => {
+  const features = useRef(null);
 
   const [
 		mapPositionX,
@@ -21,6 +24,10 @@ const Body = () => {
 	] = useCoordinateAndZoom();
 
   const [
+    moveToItem
+	] = useMoveToItem(setMapPositionX, setMapPositionY, setMapZoom);
+
+  const [
 		dataBelarus,
     dataRussia,
 	] = useLoadData();
@@ -28,24 +35,12 @@ const Body = () => {
   const [
 		isSeeData,
     setIsSeeData,
+    isVisible, 
+    setIsVisible,
 	] = useSwitcher(dataBelarus, dataRussia);
 
-
-
-  const testing = () => {
-   /*  setMapZoom(4);
-    setMapPositionX(13);
-    console.log(myMap); */
-  }
-
-
   return (
-  <div>
-
-    <button
-      onClick={() => testing()}
-    />
-     
+  <div>    
     <Aside
       dataBelarus={dataBelarus}
       dataRussia={dataRussia}
@@ -54,25 +49,50 @@ const Body = () => {
       setMapPositionX={setMapPositionX}
       setMapPositionY={setMapPositionY}
       setMapZoom={setMapZoom}
+      isVisible={isVisible}
+      setIsVisible={setIsVisible}
+      moveToItem={moveToItem}
     />
     <YMaps>
       <Map 
-        instanceRef = {myMap}
         state = {{ center: [mapPositionY, mapPositionX], zoom: mapZoom}}
-        height="1920px"
-        width="1680px"
+        height="100vh"
+        width="100vw"
       >
+
+      <ObjectManager
+        options={{
+          clusterize: true,
+          gridSize: 32,
+        }}
+        objects={{
+          openBalloonOnClick: true,
+          preset: 'islands#greenDotIcon',
+        }}
+        clusters={{
+          preset: 'islands#redClusterIcons',
+        }}
+        filter={object => object.id % 2 === 0}
+        modules={[
+          'objectManager.addon.objectsBalloon',
+          'objectManager.addon.objectsHint',
+        ]}
+      />
+
         <Clusterer
           options={{
-        /*     preset: "islands#nightIcon", */
-      /*       groupByCoordinates: false,
+            preset: 'islands#nightCircleIcon', 
+        /*     groupByCoordinates: false,
             clusterDisableClickZoom: true,
             clusterHideIconOnBalloonOpen: false,
-            geoObjectHideIconOnBalloonOpen: false, */
+            geoObjectHideIconOnBalloonOpen: false,  */
           }}
         >
           <Points
             isSeeData={isSeeData}
+            dataBelarus={dataBelarus}
+            dataRussia={dataRussia}
+            isVisible={isVisible}
           />
         </Clusterer>
       </Map>

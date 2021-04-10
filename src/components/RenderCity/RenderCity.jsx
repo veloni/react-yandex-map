@@ -1,35 +1,36 @@
 import React, {useState, useEffect} from 'react';
 
-import RenderCityData from '../RenderCityData/RenderCityData';
+import RenderOfficeData from '../RenderOfficeData/RenderOfficeData';
+
+import arrowUp from './svg/up-arrow.svg';
 
 import './RenderCity.scss';
 
-const RenderCity = ({keyCity, isSeeData, setMapZoom}) => {
+const RenderCity = ({keyCity, isSeeData, setMapZoom, moveToItem}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openAndView = () => {
     setIsOpen(!isOpen);
-    console.log(setMapZoom);
-    setMapZoom(50);
   }
 
-  return (
+  return (  
     <div className="aside-name-city-and-data">  
       <div className="wrapper-city-name-open">
-        <span className="aside-text-name-city">
+        <span className={isOpen ? "aside-text-name-city aside-text-name-city-active" : "aside-text-name-city" }>
           {keyCity}
         </span>   
-        <span 
-          className="aside-icon-open"
+        <img 
+          src={arrowUp}
+          className={!isOpen ? "icon-actve aside-icon-open" : "aside-icon-open"}
           onClick={() => openAndView()}
         >
-          открыть
-        </span>   
+        </img>   
       </div>
       {
-        isOpen && <RenderCityData
+        isOpen && <RenderOfficeData
           keyCity={keyCity}
           isSeeData={isSeeData}
+          moveToItem={moveToItem}
         />
       }
     </div>

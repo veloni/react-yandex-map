@@ -1,11 +1,12 @@
 const dataPlaceMark = {
   Russia: [
     {
-      "Новосибирск": [
+      "Новосибирск": 
+      [
         {
           coordinate: [
-            54.77777,
-            82.928961
+            54.88777,
+            82.92896,
           ],
           nameOrganization: "ОАО Пал Палыч",
           nameDirector: "Пал Палыч",
@@ -14,8 +15,8 @@ const dataPlaceMark = {
         },
         {
           coordinate: [
-            55.77777,
-            82.928961
+            54.92050,
+            82.92896,
           ],
           nameOrganization: "ОАО Иван Иваныч",
           nameDirector: "Иван Иваныч",
@@ -23,11 +24,12 @@ const dataPlaceMark = {
           email: "user@mail.com",
         },
       ],
+
       "Москва": [
         {
           coordinate: [
-            56.831903,
-            36.411961
+            55.931903,
+            36.991961,
           ],
           nameOrganization: "ОАО Сидорович",
           nameDirector: "Сидорович",
@@ -38,7 +40,7 @@ const dataPlaceMark = {
         {
           coordinate: [
             55.931903,
-            37.611961
+            37.611961,
           ],
           nameOrganization: "ОАО Сидор Сидорович",
           nameDirector: "Сидор Сидорович",
@@ -50,7 +52,7 @@ const dataPlaceMark = {
         {
           coordinate: [
             55.831903,
-            37.411961
+            60.411961,
           ],
           nameOrganization: "ОАО Петр Петрович",
           nameDirector: "Петр Пертрович",
@@ -65,8 +67,8 @@ const dataPlaceMark = {
       "Минск": [
         {
           coordinate: [
-            50.00000,
-            82.928961
+            53.3145,
+            28.0242,
           ],
           nameOrganization: "ОАО Софья Софинская",
           nameDirector: "Софья Софинская",
@@ -75,8 +77,8 @@ const dataPlaceMark = {
         },
         {
           coordinate: [
-            50.00000,
-            82.928961
+            53.3145,
+            28.0242,
           ],
           nameOrganization: "ОАО Анна",
           nameDirector: "Анна",
@@ -87,8 +89,8 @@ const dataPlaceMark = {
       "Гомель": [
         {
           coordinate: [
-            50.00000,
-            82.928961
+            53.3145,
+            28.0242,
           ],
           nameOrganization: "ОАО Марта",
           nameDirector: "Марта",
@@ -98,8 +100,8 @@ const dataPlaceMark = {
 
         {
           coordinate: [
-            50.00000,
-            82.928961
+            53.3145,
+            28.0242,
           ],
           nameOrganization: "ОАО Влада",
           nameDirector: "Влада",
@@ -110,8 +112,8 @@ const dataPlaceMark = {
       "Полоцк": [
         {
           coordinate: [
-            50.00000,
-            82.928961
+            53.3145,
+            28.0242,
           ],
           nameOrganization: "ОАО Анастасия",
           nameDirector: "Анастасия",
