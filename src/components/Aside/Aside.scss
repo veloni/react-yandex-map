@@ -15,11 +15,15 @@
 .button-switcher {
   height: 35px;
   width: 200px;
+  color: #afafaf;
   cursor: pointer;
+  outline: none;
 }
 
 .button-switcher-active {
-  background-color: orange;
+  background-color: #ff9e00;
+  color: white;
+  border: none;
 }
 
 .aside-name-city-and-data {

@@ -3,8 +3,8 @@
 const useSwitcher = ( 
   dataBelarus, 
   dataRussia, 
-  setMapPositionX, 
-  setMapPositionY, 
+  refMap,
+  clusterRef,
   ) => {
   const [isSeeData, setIsSeeData] = useState(null);
   const [isVisible, setIsVisible] = useState(true);
@@ -12,20 +12,25 @@ const useSwitcher = (
   const switchBelarus = () => {
     setIsSeeData(dataBelarus);
     setIsVisible(false);
-    setMapPositionX(28);
-    setMapPositionY(53);
+
+    setTimeout(() => { 
+      refMap.current.setBounds(clusterRef.current.getBounds()); 
+    }, 1);  
   } 
 
   const switchRussia = () => {
     setIsSeeData(dataRussia);
     setIsVisible(true);
-    setMapPositionX(80);
-    setMapPositionY(60);
-  } 
+
+    setTimeout(() => { 
+      refMap.current.setBounds(clusterRef.current.getBounds());
+     }, 1); 
+  }
 
   useEffect(() => {
     setIsSeeData(dataRussia);
   },[dataRussia]);
+
   
   return [
     isSeeData,

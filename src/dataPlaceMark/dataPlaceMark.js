@@ -130,7 +130,7 @@ const dataPlaceMark = {
     {
       "Минск": [
         {
-          id: 10,
+          id: 0,
           coordinate: [
             53.9,
             27.6,
@@ -141,7 +141,7 @@ const dataPlaceMark = {
           email: "user@mail.com",
         },
         {
-          id: 11,
+          id: 1,
           coordinate: [
             53.9,
             27.5,
@@ -154,7 +154,7 @@ const dataPlaceMark = {
       ],
       "Гомель": [
         {
-          id: 12,
+          id: 2,
           coordinate: [
             52.45,
             31.0000,
@@ -166,7 +166,7 @@ const dataPlaceMark = {
         },
 
         {
-          id: 13,
+          id: 3,
           coordinate: [
             52.45,
             30.99
@@ -179,7 +179,7 @@ const dataPlaceMark = {
       ],
       "Брест": [
         {
-          id: 14,
+          id: 4,
           coordinate: [
             52.08,
             23.7,
@@ -190,7 +190,7 @@ const dataPlaceMark = {
           email: "user@mail.com",
         },
         {
-          id: 15,
+          id: 5,
           coordinate: [
             52.12,
             23.75,
@@ -203,7 +203,7 @@ const dataPlaceMark = {
       ],
       "Гродно": [
         {
-          id: 16,
+          id: 6,
           coordinate: [
             53.6500,
             23.78,
@@ -214,7 +214,7 @@ const dataPlaceMark = {
           email: "user@mail.com",
         },
         {
-          id: 17,
+          id: 7,
           coordinate: [
             53.6700,
             23.78,
@@ -227,7 +227,7 @@ const dataPlaceMark = {
       ],
       "Могилев": [
         {
-          id: 18,
+          id: 8,
           coordinate: [
             53.8999,
             30.2521,
@@ -238,7 +238,7 @@ const dataPlaceMark = {
           email: "user@mail.com",
         },
         {
-          id: 19,
+          id: 9,
           coordinate: [
             53.9010,
             30.2591,

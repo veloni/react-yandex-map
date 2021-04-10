@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 
 import RenderOfficeData from '../RenderOfficeData/RenderOfficeData';
 
-import arrowUp from './svg/up-arrow.svg';
+import arrowUp from './svg/up-arrow-up.svg';
+import arrowDown from './svg/up-arrow-down.png';
 
 import './RenderCity.scss';
 
@@ -31,7 +32,7 @@ const RenderCity = ({
         </span>   
         <img 
           alt="arrow"
-          src={arrowUp}
+          src={isOpen ? arrowDown : arrowUp}
           className={!isOpen ? "icon-actve aside-icon-open" : "aside-icon-open"}
           onClick={() => openAndView()}
         >

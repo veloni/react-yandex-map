@@ -4,7 +4,6 @@ import { YMaps, Map, Clusterer } from 'react-yandex-maps';
 
 import useLoadData from '../../hooks/useLoadData'; 
 import useSwitcher from '../../hooks/useSwitcher'; 
-import useCoordinateAndZoom from '../../hooks/useCoordinateAndZoom'; 
 import useMoveToItem from '../../hooks/useMoveToItem';
 
 import Points from '../Points/Points';
@@ -14,6 +13,11 @@ import './Body.scss';
 
 const Body = () => {
   const refMap = useRef(null);
+  const clusterRef = useRef(null);
+
+  const [clusterLoad, setClusterLoad] = useState(null);
+
+  const [ymaps, setYmaps] = useState(null);
 
   const [
     dataBelarus,
@@ -23,19 +27,12 @@ const Body = () => {
 	] = useLoadData();
 
   const [
-		mapPositionX,
-    mapPositionY,
-    setMapPositionX,
-    setMapPositionY,
-	] = useCoordinateAndZoom();
-
-  const [
     moveToItem,
     giveRef,
+    toCenterWindow,
 	] = useMoveToItem(
     refMap,
-    arrayRef, 
-    setArrayRef,
+    clusterLoad,
   );
 
   const [
@@ -46,9 +43,19 @@ const Body = () => {
 	] = useSwitcher(
     dataBelarus, 
     dataRussia, 
-    setMapPositionX, 
-    setMapPositionY, 
+    refMap, 
+    clusterRef,
   );
+
+  const clusterLayout = () => {
+    if (ymaps) {
+      const clusterLayout = ymaps.templateLayoutFactory.createClass(
+        `<div class="cluster-number">$[properties.geoObjects.length]</div>`,
+      );
+      return clusterLayout;
+    }
+    return null;
+  };
 
   return (
     <div className="main-wrapper">    
@@ -64,27 +71,41 @@ const Body = () => {
         <div className="map-wrapper">
           <Map 
             instanceRef={refMap}
-            state = {{ center: [mapPositionY, mapPositionX], zoom: 5}}
+            defaultState = {{ center: [55, 85], zoom: 4}}
             height="1000px"
             width="1300px"  
+            onLoad={ymaps => setYmaps(ymaps)}
+            modules={[
+              "templateLayoutFactory",
+              "geoObject.addon.balloon",
+              "clusterer.addon.balloon",
+            ]}
           >
             <Clusterer
+              instanceRef={clusterRef}
+              onLoad={clusterLoad => setClusterLoad(clusterLoad)}
               options={{
-                preset: 'islands#nightCircleIcon', 
                 groupByCoordinates: false,
-                clusterDisableClickZoom: true,
-                clusterHideIconOnBalloonOpen: false,
-                geoObjectHideIconOnBalloonOpen: false,  
+                clusterIcons: [
+                  {
+                    size: [40, 40],
+                    offset: [-20, -20]
+                  }
+                ],
+                clusterIconContentLayout: clusterLayout(),
               }}
-            >
+            
+            > 
               <Points
+                ymaps={ymaps}
                 isSeeData={isSeeData}
                 dataBelarus={dataBelarus}
                 dataRussia={dataRussia}
                 isVisible={isVisible}
                 giveRef={giveRef}
+                toCenterWindow={toCenterWindow}
               />
-            </Clusterer>
+            </Clusterer> 
           </Map>
         </div>
       </YMaps>
