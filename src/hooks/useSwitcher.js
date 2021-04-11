@@ -5,9 +5,8 @@ const useSwitcher = (
   dataRussia, 
   refMap, 
   clusterRef,
-  clusterLoad,
   isBalloonOpened,
-  ) => {
+) => {
   const [isSeeData, setIsSeeData] = useState(null);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -15,27 +14,13 @@ const useSwitcher = (
     setIsSeeData(dataRussia);
   },[dataRussia]);
 
-  const switchBelarus = (data) => {
-    if (!isBalloonOpened) {
-      setIsSeeData(dataBelarus);
-      setIsVisible(false);
-
-      setTimeout(() => { 
-        refMap.current.setBounds(clusterRef.current.getBounds()); 
-      }, 1); 
-    }
+  const switchBelarus = () => {
+    switcher(dataBelarus, false); 
   };
 
   const switchRussia = () => {
-    if (!isBalloonOpened) {
-      setIsSeeData(dataRussia);
-      setIsVisible(true);
-
-      setTimeout(() => { 
-        refMap.current.setBounds(clusterRef.current.getBounds());
-      }, 1); 
-    }
-  };
+    switcher(dataRussia, true); 
+  }; 
 
   const switcher = (data, render) => {
     if (!isBalloonOpened) {
@@ -44,7 +29,7 @@ const useSwitcher = (
 
       setTimeout(() => { 
         refMap.current.setBounds(clusterRef.current.getBounds());
-      }, 1); 
+      }, 1);  
     }
   };
 

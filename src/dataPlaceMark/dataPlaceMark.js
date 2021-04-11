@@ -26,7 +26,6 @@ const dataPlaceMark = {
           email: "user@mail.com",
         },
       ],
-
       "Москва": [
         {
           id: 2,
@@ -39,7 +38,6 @@ const dataPlaceMark = {
           phone: "+8(999)333-33-33 +8(999)222-22-22",
           email: "user@mail.com",
         },
-
         {
           id: 3,
           coordinate: [
@@ -112,17 +110,6 @@ const dataPlaceMark = {
           phone: "+8(999)333-33-33 +8(999)222-22-22",
           email: "user@mail.com",
         },
-        {
-          id: 9,
-          coordinate: [
-            62.05,
-            129.7,
-          ],
-          nameOrganization: "ОАО Влад Владыч",
-          nameDirector: "Влад Владыч",
-          phone: "+8(999)333-33-33 +8(999)222-22-22",
-          email: "user@mail.com",
-        },
       ],
     },
   ],
@@ -164,33 +151,21 @@ const dataPlaceMark = {
           phone: "+8(999)333-33-33 +8(999)222-22-22",
           email: "user@mail.com",
         },
-
-        {
-          id: 3,
-          coordinate: [
-            52.45,
-            30.99
-          ],
-          nameOrganization: "ОАО Влада",
-          nameDirector: "Влада",
-          phone: "+8(999)333-33-33 +8(999)222-22-22",
-          email: "user@mail.com",
-        },  
       ],
       "Брест": [
         {
-          id: 4,
+          id: 3,
           coordinate: [
             52.08,
             23.7,
           ],
-          nameOrganization: "ОАО Анастасия",
-          nameDirector: "Анастасия",
+          nameOrganization: "ОАО Владислава",
+          nameDirector: "Владислава",
           phone: "+8(999)333-33-33 +8(999)222-22-22",
           email: "user@mail.com",
         },
         {
-          id: 5,
+          id: 4,
           coordinate: [
             52.12,
             23.75,
@@ -203,42 +178,31 @@ const dataPlaceMark = {
       ],
       "Гродно": [
         {
-          id: 6,
+          id: 5,
           coordinate: [
             53.6500,
             23.78,
           ],
-          nameOrganization: "ОАО Анастасия",
-          nameDirector: "Анастасия",
-          phone: "+8(999)333-33-33 +8(999)222-22-22",
-          email: "user@mail.com",
-        },
-        {
-          id: 7,
-          coordinate: [
-            53.6700,
-            23.78,
-          ],
-          nameOrganization: "ОАО Анастасия",
-          nameDirector: "Анастасия",
+          nameOrganization: "ОАО Евгения",
+          nameDirector: "Евгения",
           phone: "+8(999)333-33-33 +8(999)222-22-22",
           email: "user@mail.com",
         },
       ],
       "Могилев": [
         {
-          id: 8,
+          id: 6,
           coordinate: [
             53.8999,
             30.2521,
           ],
-          nameOrganization: "ОАО Анастасия",
-          nameDirector: "Анастасия",
+          nameOrganization: "ОАО Мария",
+          nameDirector: "Мария",
           phone: "+8(999)333-33-33 +8(999)222-22-22",
           email: "user@mail.com",
         },
         {
-          id: 9,
+          id: 7,
           coordinate: [
             53.9010,
             30.2591,

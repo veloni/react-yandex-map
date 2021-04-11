@@ -35,10 +35,6 @@
   background-color: #253b62;
 }
 
-/* .ymaps-2-1-78-balloon__close  {
-  background-color: #253b62;
-} */
-
 .ymaps-2-1-78-balloon__close+.ymaps-2-1-78-balloon__content {
   background-color: #253b62 !important;
   margin-right: 0px; 
@@ -54,9 +50,8 @@
 }
 
 .ymaps-2-1-78-svg-icon {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+  transform: scale(0.9);
+  border-radius: 100%;
   background-color: #253b62;
   background-image: none !important;
 }
@@ -64,4 +59,3 @@
 .ymaps-2-1-78-balloon__close-button {
   opacity: 1 !important; 
 }
-

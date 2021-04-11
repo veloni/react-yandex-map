@@ -15,17 +15,11 @@ const Body = () => {
   const refMap = useRef(null);
   const clusterRef = useRef(null);
 
-  const [clusterLoad, setClusterLoad] = useState(null);
-
   const [isYmapsLoad, setIsYmapsLoad] = useState(null);
 
   const [
     dataBelarus,
     dataRussia,
-    arrayRef,
-    setArrayRef,
-    firstRender,
-    setFirstRender,
 	] = useLoadData();
 
   const [
@@ -33,13 +27,7 @@ const Body = () => {
     giveRef,
     toCenterWindow,
     isBalloonOpened,
-	] = useMoveToItem(
-    refMap,
-    clusterLoad,
-    isYmapsLoad,
-    firstRender,
-    setFirstRender,
-  );
+	] = useMoveToItem(refMap);
 
   const [
     isSeeData,
@@ -51,14 +39,15 @@ const Body = () => {
     dataRussia, 
     refMap, 
     clusterRef,
-    clusterLoad,
     isBalloonOpened,
   );
 
   const clusterLayout = () => {
     if (isYmapsLoad) {
       const clusterLayout = isYmapsLoad.templateLayoutFactory.createClass(
-        `<div class="cluster-number">$[properties.geoObjects.length]</div>`,
+        `<div class="cluster-number">
+          $[properties.geoObjects.length]
+        </div>`,
       );
       return clusterLayout;
     }
@@ -79,9 +68,9 @@ const Body = () => {
         <div className="map-wrapper">
           <Map 
             instanceRef={refMap}
-            defaultState = {{ center: [55, 85], zoom: 4}}
-            height="50vw"
-            width="65vw"  
+            defaultState = {{ center: [50, 50], zoom: 4}}
+            height="100vh"
+            width={document.body.clientWidth - 400}
             onLoad={isYmapsLoad => setIsYmapsLoad(isYmapsLoad)}
             modules={[
               "templateLayoutFactory",
@@ -91,9 +80,8 @@ const Body = () => {
           >
             <Clusterer
               instanceRef={clusterRef}
-              onLoad={clusterLoad => setClusterLoad(clusterLoad)}
               options={{
-                groupByCoordinates: false,
+                hasBalloon: false,
                 clusterIcons: [
                   {
                     size: [40, 40],
@@ -102,7 +90,6 @@ const Body = () => {
                 ],
                 clusterIconContentLayout: clusterLayout(),
               }}
-            
             > 
               <Points
                 isYmapsLoad={isYmapsLoad}

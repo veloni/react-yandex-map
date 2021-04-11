@@ -1,8 +1,9 @@
 .wrapper-aside {
   position: absolute;
+  top: 0;
+  left: 0;
   overflow-y: auto;
-  height: 100vh;
-  width: 420px;
+  height: 100%;
   background-color: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   z-index: 1;
@@ -44,4 +45,3 @@
 .aside-name-city {
   height: 100px;
 }
-

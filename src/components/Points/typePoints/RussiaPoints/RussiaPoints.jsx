@@ -7,11 +7,11 @@ const RussiaPoints = ({
   dataRussia,
   giveRef,
   toCenterWindow,
-}) => 
-(
+}) => (
   dataRussia && Object.keys(dataRussia[0]).map((keyCity) => (
     dataRussia[0][keyCity].map((item, index) => (
       <RussianPoint
+        elementId={item.id}
         key={index}
         isYmapsLoad={isYmapsLoad}
         item={item}
@@ -20,7 +20,7 @@ const RussiaPoints = ({
         toCenterWindow={toCenterWindow}
       />
     ))  
-  ))    
+  ))  
 );
 
 export default RussiaPoints;

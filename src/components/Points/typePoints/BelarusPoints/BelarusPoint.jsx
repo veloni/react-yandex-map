@@ -5,22 +5,30 @@ import { Placemark } from 'react-yandex-maps';
 const BelarusPoint = ({ 
   item,
   index,
+  elementId,
   giveRef,
   toCenterWindow,
 }) => {
-
   const placeRef = useRef(null);
 
   const getPointData = (item) => {
     return {
-      balloonContent: `<div class=wrapper-balloon> <ul class=ballon-list>  <li class=balloon-name-organization>${item.nameOrganization}</li> <li class=balloon-name-phone>${item.nameDirector}</li> <li class=balloon-name-phone>${item.phone}</li> <li class=balloon-email>${item.email}</li> </ul> </div>`,
-     /*  strokeColor: '#F00', */
-    };
-  };
-
-  const getPointOptions = () => {
-    return {
-     /*  preset: 'islands#nightCircleIcon;', */
+      balloonContent: 
+      `<div class=wrapper-balloon>
+        <ul class=ballon-list> 
+          <li class=balloon-name-organization>
+            ${item.nameOrganization}
+          </li> <li class=balloon-name-phone>
+            ${item.nameDirector}
+          </li> 
+          <li class=balloon-name-phone>
+            ${item.phone}
+          </li> 
+          <li class=balloon-email>
+            ${item.email}
+          </li> 
+        </ul> 
+      </div>`,
     };
   };
 
@@ -33,16 +41,14 @@ const BelarusPoint = ({
       key={index}
     >
       <Placemark
-        onClick={() => toCenterWindow(item)}
+        onClick={() => toCenterWindow(item, elementId)}
         instanceRef={placeRef}
-        options={getPointOptions()}
         modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
         properties={getPointData(item)}  
         geometry={item.coordinate}
       />
     </div>
- 
   );
-}
+};
 
 export default BelarusPoint;

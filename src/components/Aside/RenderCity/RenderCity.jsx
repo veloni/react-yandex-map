@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import RenderOfficeData from '../RenderOfficeData/RenderOfficeData';
 
-import arrowUp from './svg/up-arrow-up.svg';
+import arrowUp from './svg/up-arrow-up.png';
 import arrowDown from './svg/up-arrow-down.png';
 
 import './RenderCity.scss';
@@ -13,7 +13,6 @@ const RenderCity = ({
   moveToItem,
   isVisible,
 }) => {
-
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ const RenderCity = ({
 
   const openAndView = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
   return (  
     <div className="aside-name-city-and-data">  
@@ -38,15 +37,13 @@ const RenderCity = ({
         >
         </img>   
       </div>
-      {
-        isOpen && <RenderOfficeData
-          keyCity={keyCity}
-          isSeeData={isSeeData}
-          moveToItem={moveToItem}
-        />
-      }
+      {isOpen && <RenderOfficeData
+        keyCity={keyCity}
+        isSeeData={isSeeData}
+        moveToItem={moveToItem}
+      />}
     </div>
   )
-}
+};
 
 export default RenderCity;

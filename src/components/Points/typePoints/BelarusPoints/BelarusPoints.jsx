@@ -6,11 +6,11 @@ const BelarusPoints = ({
   dataBelarus,
   giveRef,
   toCenterWindow,
-}) => 
-(
+}) => (
   dataBelarus && Object.keys(dataBelarus[0]).map((keyCity) => (
     dataBelarus[0][keyCity].map((item, index) => (
       <BelarusPoint
+        elementId={item.id}
         key={index}
         item={item}
         index={index}

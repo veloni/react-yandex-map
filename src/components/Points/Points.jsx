@@ -12,26 +12,21 @@ const Points = ({
   isVisible, 
   giveRef,
   toCenterWindow,
-}) => 
-(
+}) => (
   <div>
-    {
-      isVisible && <RussiaPoints
-        isYmapsLoad={isYmapsLoad}
-        dataRussia={dataRussia}
-        giveRef={giveRef}
-        toCenterWindow={toCenterWindow}
-      />
-    }
-    {
-      !isVisible && <BelarusPoints
-        dataBelarus={dataBelarus}
-        giveRef={giveRef}
-        toCenterWindow={toCenterWindow}
-      />
-    }
+    {isVisible && <RussiaPoints
+      isYmapsLoad={isYmapsLoad}
+      dataRussia={dataRussia}
+      giveRef={giveRef}
+      toCenterWindow={toCenterWindow}
+    />}
+    {!isVisible && <BelarusPoints
+      isYmapsLoad={isYmapsLoad}
+      dataBelarus={dataBelarus}
+      giveRef={giveRef}
+      toCenterWindow={toCenterWindow}
+    />} 
   </div>
 );
-
 
 export default Points;
