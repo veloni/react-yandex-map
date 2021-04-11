@@ -17,22 +17,28 @@ const Body = () => {
 
   const [clusterLoad, setClusterLoad] = useState(null);
 
-  const [ymaps, setYmaps] = useState(null);
+  const [isYmapsLoad, setIsYmapsLoad] = useState(null);
 
   const [
     dataBelarus,
     dataRussia,
     arrayRef,
     setArrayRef,
+    firstRender,
+    setFirstRender,
 	] = useLoadData();
 
   const [
     moveToItem,
     giveRef,
     toCenterWindow,
+    isBalloonOpened,
 	] = useMoveToItem(
     refMap,
     clusterLoad,
+    isYmapsLoad,
+    firstRender,
+    setFirstRender,
   );
 
   const [
@@ -45,11 +51,13 @@ const Body = () => {
     dataRussia, 
     refMap, 
     clusterRef,
+    clusterLoad,
+    isBalloonOpened,
   );
 
   const clusterLayout = () => {
-    if (ymaps) {
-      const clusterLayout = ymaps.templateLayoutFactory.createClass(
+    if (isYmapsLoad) {
+      const clusterLayout = isYmapsLoad.templateLayoutFactory.createClass(
         `<div class="cluster-number">$[properties.geoObjects.length]</div>`,
       );
       return clusterLayout;
@@ -72,9 +80,9 @@ const Body = () => {
           <Map 
             instanceRef={refMap}
             defaultState = {{ center: [55, 85], zoom: 4}}
-            height="1000px"
-            width="1300px"  
-            onLoad={ymaps => setYmaps(ymaps)}
+            height="50vw"
+            width="65vw"  
+            onLoad={isYmapsLoad => setIsYmapsLoad(isYmapsLoad)}
             modules={[
               "templateLayoutFactory",
               "geoObject.addon.balloon",
@@ -97,7 +105,7 @@ const Body = () => {
             
             > 
               <Points
-                ymaps={ymaps}
+                isYmapsLoad={isYmapsLoad}
                 isSeeData={isSeeData}
                 dataBelarus={dataBelarus}
                 dataRussia={dataRussia}

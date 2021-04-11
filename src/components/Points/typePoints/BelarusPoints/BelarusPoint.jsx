@@ -26,7 +26,7 @@ const BelarusPoint = ({
 
   useEffect(() => {
     giveRef(placeRef); 
-  },[]);
+  },[giveRef]);
 
   return (
     <div

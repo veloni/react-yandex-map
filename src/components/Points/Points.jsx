@@ -6,7 +6,7 @@ import RussiaPoints from './typePoints/RussiaPoints/RussiaPoints';
 import './Points.scss';
 
 const Points = ({ 
-  ymaps,
+  isYmapsLoad,
   dataBelarus, 
   dataRussia , 
   isVisible, 
@@ -17,7 +17,7 @@ const Points = ({
   <div>
     {
       isVisible && <RussiaPoints
-        ymaps={ymaps}
+        isYmapsLoad={isYmapsLoad}
         dataRussia={dataRussia}
         giveRef={giveRef}
         toCenterWindow={toCenterWindow}

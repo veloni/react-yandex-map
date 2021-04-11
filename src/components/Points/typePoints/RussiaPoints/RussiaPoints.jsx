@@ -3,7 +3,7 @@ import React from 'react';
 import RussianPoint from './RussiaPoint';
 
 const RussiaPoints = ({ 
-  ymaps,
+  isYmapsLoad,
   dataRussia,
   giveRef,
   toCenterWindow,
@@ -13,7 +13,7 @@ const RussiaPoints = ({
     dataRussia[0][keyCity].map((item, index) => (
       <RussianPoint
         key={index}
-        ymaps={ymaps}
+        isYmapsLoad={isYmapsLoad}
         item={item}
         index={index}
         giveRef={giveRef}

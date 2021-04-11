@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import { Placemark } from 'react-yandex-maps';
 
 const RussiaPoint = ({ 
-  ymaps,
+  isYmapsLoad,
   item,
   index,
   giveRef,
@@ -20,29 +20,14 @@ const RussiaPoint = ({
 
    const getPointOptions = () => {
     return {
-     /*    iconLayout: clusterLayout(),    */
      preset: 'islands#circleIcon',
      iconColor: '#3caa3c'
     };
   };
 
-/*   const clusterLayout = () => {
-    if (ymaps) {
-      const clusterLayout = ymaps.templateLayoutFactory.createClass(
-        `<div 
-          class="cluster-number-small"
-          onclick=toCenterWindow(item)
-        > 
-        </div>`,
-      );
-      return clusterLayout;
-    }
-    return null;
-  };   */
-
   useEffect(() => {
     giveRef(placeRef); 
-  },[]);
+  },[giveRef]);
 
   return (
     <div
