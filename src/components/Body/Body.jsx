@@ -6,7 +6,7 @@ import useLoadData from '../../hooks/useLoadData';
 import useSwitcher from '../../hooks/useSwitcher'; 
 import useMoveToItem from '../../hooks/useMoveToItem';
 
-import Points from '../Points/Points';
+import PlaceMarks from '../PlaceMarks/PlaceMarks';
 import Aside from '../Aside/Aside';
 
 import './Body.scss';
@@ -91,7 +91,7 @@ const Body = () => {
                 clusterIconContentLayout: clusterLayout(),
               }}
             > 
-              <Points
+              <PlaceMarks
                 isYmapsLoad={isYmapsLoad}
                 isSeeData={isSeeData}
                 dataBelarus={dataBelarus}

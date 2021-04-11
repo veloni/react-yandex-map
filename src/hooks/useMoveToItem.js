@@ -13,7 +13,7 @@ const useMoveToItem = (
   };
 
   const clickPlaceMark = (item, id) => {
-    if (refMap.current.getZoom() < 6) {
+    if (refMap.current.getZoom() !== 15) {
       refMap.current.setZoom(15, {duration: 1000}); 
     }
 

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 
 import { Placemark } from 'react-yandex-maps';
 
-const RussiaPoint = ({ 
+const RenderOnePlaceMark = ({ 
   item,
   index,
   giveRef,
@@ -51,4 +51,4 @@ const RussiaPoint = ({
   );
 };
 
-export default RussiaPoint;
+export default RenderOnePlaceMark;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import RenderPoint from './RenderPoint';
+import RenderOnePlaceMark from './RenderOnePlaceMark';
 
-const RenderPoints = ({ 
+const RenderPlaceMarks = ({ 
   isYmapsLoad,
   dataObject,
   giveRef,
@@ -10,7 +10,7 @@ const RenderPoints = ({
 }) => (
   dataObject && Object.keys(dataObject[0]).map((keyCity) => (
     dataObject[0][keyCity].map((item, index) => (
-      <RenderPoint
+      <RenderOnePlaceMark
         elementId={item.id}
         key={index}
         isYmapsLoad={isYmapsLoad}
@@ -23,4 +23,4 @@ const RenderPoints = ({
   ))  
 );
 
-export default RenderPoints;
+export default RenderPlaceMarks;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import RenderPoints from './RenderPoints/RenderPoints';
+import RenderPlaceMarks from './RenderPlaceMarks/RenderPlaceMarks';
 
-import './Points.scss';
+import './PlaceMarks.scss';
 
 const Points = ({ 
   isYmapsLoad,
@@ -13,13 +13,13 @@ const Points = ({
   clickPlaceMark,
 }) => (
   <div>
-    {isVisible && <RenderPoints
+    {isVisible && <RenderPlaceMarks
       isYmapsLoad={isYmapsLoad}
       dataObject={dataRussia}
       giveRef={giveRef}
       clickPlaceMark={clickPlaceMark}
     />}
-    {!isVisible && <RenderPoints
+    {!isVisible && <RenderPlaceMarks
       isYmapsLoad={isYmapsLoad}
       dataObject={dataBelarus}
       giveRef={giveRef}
