@@ -25,7 +25,7 @@ const Body = () => {
   const [
     moveToItem,
     giveRef,
-    toCenterWindow,
+    clickPlaceMark,
     isBalloonOpened,
 	] = useMoveToItem(refMap);
 
@@ -98,7 +98,7 @@ const Body = () => {
                 dataRussia={dataRussia}
                 isVisible={isVisible}
                 giveRef={giveRef}
-                toCenterWindow={toCenterWindow}
+                clickPlaceMark={clickPlaceMark}
               />
             </Clusterer> 
           </Map>
@@ -106,6 +106,6 @@ const Body = () => {
       </YMaps>
     </div>
   );
-}
+};
 
 export default Body;

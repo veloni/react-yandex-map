@@ -2,12 +2,12 @@ import React, { useRef, useEffect } from 'react';
 
 import { Placemark } from 'react-yandex-maps';
 
-const BelarusPoint = ({ 
+const RussiaPoint = ({ 
   item,
   index,
-  elementId,
   giveRef,
-  toCenterWindow,
+  clickPlaceMark,
+  elementId,
 }) => {
   const placeRef = useRef(null);
 
@@ -31,7 +31,7 @@ const BelarusPoint = ({
       </div>`,
     };
   };
-
+  
   useEffect(() => {
     giveRef(placeRef); 
   },[giveRef]);
@@ -41,7 +41,7 @@ const BelarusPoint = ({
       key={index}
     >
       <Placemark
-        onClick={() => toCenterWindow(item, elementId)}
+        onClick={() => clickPlaceMark(item, elementId)}
         instanceRef={placeRef}
         modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
         properties={getPointData(item)}  
@@ -51,4 +51,4 @@ const BelarusPoint = ({
   );
 };
 
-export default BelarusPoint;
+export default RussiaPoint;

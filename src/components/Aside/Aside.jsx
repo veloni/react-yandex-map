@@ -10,8 +10,7 @@ const Aside = ({
   isSeeData, 
   isVisible, 
   moveToItem, 
-}) => 
-(
+}) => (
   <div className="wrapper-aside">
     <div className="aside-box-switcher"> 
       <button 

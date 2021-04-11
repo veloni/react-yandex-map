@@ -34,8 +34,7 @@ const RenderCity = ({
           src={isOpen ? arrowDown : arrowUp}
           className={!isOpen ? "icon-actve aside-icon-open" : "aside-icon-open"}
           onClick={() => openAndView()}
-        >
-        </img>   
+        /> 
       </div>
       {isOpen && <RenderOfficeData
         keyCity={keyCity}

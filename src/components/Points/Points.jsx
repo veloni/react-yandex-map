@@ -1,7 +1,6 @@
 import React from 'react';
 
-import BelarusPoints from './typePoints/BelarusPoints/BelarusPoints';
-import RussiaPoints from './typePoints/RussiaPoints/RussiaPoints';
+import RenderPoints from './RenderPoints/RenderPoints';
 
 import './Points.scss';
 
@@ -11,20 +10,20 @@ const Points = ({
   dataRussia , 
   isVisible, 
   giveRef,
-  toCenterWindow,
+  clickPlaceMark,
 }) => (
   <div>
-    {isVisible && <RussiaPoints
+    {isVisible && <RenderPoints
       isYmapsLoad={isYmapsLoad}
-      dataRussia={dataRussia}
+      dataObject={dataRussia}
       giveRef={giveRef}
-      toCenterWindow={toCenterWindow}
+      clickPlaceMark={clickPlaceMark}
     />}
-    {!isVisible && <BelarusPoints
+    {!isVisible && <RenderPoints
       isYmapsLoad={isYmapsLoad}
-      dataBelarus={dataBelarus}
+      dataObject={dataBelarus}
       giveRef={giveRef}
-      toCenterWindow={toCenterWindow}
+      clickPlaceMark={clickPlaceMark}
     />} 
   </div>
 );

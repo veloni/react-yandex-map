@@ -12,7 +12,7 @@ const useMoveToItem = (
     openBalloonMove(item, id);
   };
 
-  const toCenterWindow = (item, id) => {
+  const clickPlaceMark = (item, id) => {
     if (refMap.current.getZoom() < 6) {
       refMap.current.setZoom(15, {duration: 1000}); 
     }
@@ -38,7 +38,7 @@ const useMoveToItem = (
   return [
     moveToItem,
     giveRef,
-    toCenterWindow,
+    clickPlaceMark,
     isBalloonOpened,
   ];
 };
